@@ -1,0 +1,9 @@
+﻿  User.cpp
+D:\19120682\OOP\Test\Tet\bookStore\bookStore\inputHandler.h(11,9): error C2065: 'User': undeclared identifier
+D:\19120682\OOP\Test\Tet\bookStore\bookStore\inputHandler.h(11,2): error C2923: 'std::vector': 'User' is not a valid template type argument for parameter '_Ty'
+D:\19120682\OOP\Test\Tet\bookStore\bookStore\inputHandler.h(11,2): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\vector(412): message : see declaration of 'std::vector'
+D:\19120682\OOP\Test\Tet\bookStore\bookStore\User.cpp(51,23): warning C4018: '<': signed/unsigned mismatch
+  inputHandler.cpp
+  main.cpp
+  Generating Code...
