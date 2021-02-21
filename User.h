@@ -1,8 +1,7 @@
-#pragma once
-#include <iostream>
-#include "inputHandler.h"
+#ifndef USER_H
+#define USER_H
 
-
+#include "Library.h"
 
 class User {
 private:
@@ -19,6 +18,9 @@ public:
 	string getPassword();
 	int getRole();
 
-	void printListBook();
+	void printBookList();
+	void printUserList();
 	~User();
 };
+
+#endif // !USER_H

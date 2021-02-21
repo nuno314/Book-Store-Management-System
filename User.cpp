@@ -1,5 +1,5 @@
 #include "User.h"
-#include "inputHandler.h"
+#include "Library.h"
 
 extern Library lib;
 extern string username, password;
@@ -40,7 +40,7 @@ int User::getRole() {
 	return this->role;
 }
 
-void User::printListBook() {
+void User::printBookList() {
 	ofstream outFile;
 	outFile.open("Book.txt"); // Open and write Book.txt
 	if (!outFile) {
@@ -50,6 +50,20 @@ void User::printListBook() {
 
 	for (size_t i = 0; i < lib.Database.getCapacity(); i++) {
 		outFile << lib.Database.bookList[i].getTitle();
+	}
+
+	outFile.close();
+}
+
+void User::printUserList() {
+	ofstream outFile("UserList.txt");
+	if (!outFile) {
+		cout << "UserList.txt can't open." << endl;
+		return;
+	}
+
+	for (size_t i = 0; i < lib.UserArray.size(); i++) {
+		outFile << lib.UserArray[i].getUsername() << " " << lib.UserArray[i].getPassword() << " " << lib.UserArray[i].getRole() << endl;
 	}
 
 	outFile.close();
