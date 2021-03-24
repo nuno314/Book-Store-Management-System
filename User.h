@@ -2,6 +2,7 @@
 #define USER_H
 
 #include "Library.h"
+#include <conio.h>
 
 class User {
 private:
@@ -16,10 +17,13 @@ public:
 
 	string getUsername();
 	string getPassword();
-	int getRole();
+	string getHiddenPassword();
 
-	void printBookList();
+	int getRole();
+	void listBook();
 	void printUserList();
+	void changePsw();
+
 	~User();
 };
 

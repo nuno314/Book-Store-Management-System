@@ -1,6 +1,7 @@
 #include "User.h"
 #include "Library.h"
 
+
 extern Library lib;
 extern string username, password;
 
@@ -40,19 +41,17 @@ int User::getRole() {
 	return this->role;
 }
 
-void User::printBookList() {
-	ofstream outFile;
-	outFile.open("Book.txt"); // Open and write Book.txt
-	if (!outFile) {
-		cout << "Book.txt can't open." << endl;
-		return;
-	}
-
+void User::listBook() {
+	cout << "-----BOOK LIST-----" << endl;
+	cout << "__________________________________________________________________________________________________________________________" << endl;
+	cout << "|---------------Title---------------|--BookID--|-----Author-----|----Publisher----|--Category--|--Price--|--Publication--|" << endl;
 	for (size_t i = 0; i < lib.Database.getCapacity(); i++) {
-		outFile << lib.Database.bookList[i].getTitle();
+		cout << "|" << setw(35) << lib.Database.bookList[i].getTitle() <<  "|" << setw(10) << lib.Database.bookList[i].getBookID() << "|" << setw(16) << lib.Database.bookList[i].getAuthor() << "|" 
+		<< setw(17) << lib.Database.bookList[i].getPublisher() << "|" << setw(12) << lib.Database.bookList[i].getCategory() << "|" << setw(9) << lib.Database.bookList[i].getCost() << "|" << setw(15) << lib.Database.bookList[i].getPublication() << "|" << endl;
 	}
-
-	outFile.close();
+	cout << "==========================================================================================================================" << endl;
+	
+	system("pause");
 }
 
 void User::printUserList() {
@@ -69,8 +68,39 @@ void User::printUserList() {
 	outFile.close();
 }
 
+void User::changePsw() {
+	cout << "Enter current password: " << endl;
+	string _password;
+	cin >> _password;
+
+	if (this->getPassword() == _password) {
+		cout << "Enter your new password: "; 
+	}
+}
+
+string User::getHiddenPassword() {
+	int passwordSize = 10;
+	char* s = new char[passwordSize];
+	int i = 0;
+	for (i = 0; i < passwordSize; i++) {
+		s[i] = _getch(); _putch('*');
+
+		if (s[i] == 13) break; // 13 = Enter
+	};
+	
+	string _password;
+	for (int i = 0; i < passwordSize; i++) {
+		if (s[i] != '\r')
+			_password += s[i];
+		else break;
+	}
+
+	return _password;
+}
+
 User::~User(){
 	username = "";
 	password = "";
 	role = 0;
+	printUserList();
 }

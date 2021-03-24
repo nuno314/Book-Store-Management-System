@@ -1,6 +1,9 @@
 #include "book.h"
 #include "bookDatabase.h"
 #include "Library.h"
+#include "Customer.h"
+#include <Windows.h>
+#include "Manager.h"
 
 Library lib;
 string username, password;
@@ -34,7 +37,7 @@ void Session() {
 		cout << "Username: ";
 		cin >> username;
 		cout << "Password: ";
-		cin >> password;
+		password = guess.getHiddenPassword();
 
 		role = Login(username, password);
 
@@ -69,31 +72,36 @@ void Session() {
 				cout << "Incorrect password. Exiting..." << endl;
 				return;
 			}
-			cout << "The password is incorrect. Try again.." << endl;
+			cout << "\nThe password is incorrect. Try again.." << endl;
 			cout << "You have " << 5 - time << " chance(s) left." << endl;
 			cout << "Password: ";
-			cin >> password;
+			password = guess.getHiddenPassword();
 			role = Login(username, password);
 		}
 	}
 
 	switch (role)
 	{
-	case 1: // Admin
-	case 2: // Customer
+	case 1: {
+		Customer person;
+		person.Interface(username);
+	}
+	case 2: {
+		/*Admin person;
+		person.Interface(username);*/
+	}
 	default:
 		break;
 	}
 
-	guess.printBookList();
-	guess.printUserList();
+	
 	
 
 }
 
 int main() {
+	
 	loadData();
 	Session();
-
 	// 17.2 done input handler.
 }
