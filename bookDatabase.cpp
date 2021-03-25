@@ -79,7 +79,100 @@ void BookDatabase::sortBook(const string& _require) {
 		return;
 }
 
+void BookDatabase::searchByAuthor() {
+	cout << "Enter author name: ";
+	string _author;
+	cin.ignore();
+	getline(cin, _author);
+
+	bool existed = false;
+	
+	for (size_t i = 0; i < getCapacity(); i++) {
+		
+		if (bookList[i].getAuthor() == _author) {
+			
+			if (existed == false) {
+				cout << "__________________________________________________________________________________________________________________________" << endl;
+				cout << "|---------------Title---------------|--BookID--|-----Author-----|----Publisher----|--Category--|--Price--|--Publication--|" << endl;
+				existed = true;
+			}
+			cout << "|" << setw(35) << bookList[i].getTitle() << "|" << setw(10) << bookList[i].getBookID() << "|" << setw(16)
+			<< bookList[i].getAuthor() << "|" << setw(17) << bookList[i].getPublisher() << "|" << setw(12) << bookList[i].getCategory()
+			<< "|" << setw(9) << bookList[i].getCost() << "|" << setw(15) << bookList[i].getPublication() << "|" << endl;
+		}
+	}
+
+	if (existed)
+		cout << "--------------------------------------------------------------------------------------------------------------------------" << endl;
+	else {
+		cout << "No book found!" << endl;
+	}
+	system("pause");
+}
+
+void BookDatabase::searchByPublisher() {
+	cout << "Enter publisher name: ";
+	string _publisher;
+	cin.ignore();
+	getline(cin, _publisher);
+
+	bool existed = false;
+
+	for (size_t i = 0; i < getCapacity(); i++) {
+
+		if (bookList[i].getPublisher() == _publisher) {
+
+			if (existed == false) {
+				cout << "__________________________________________________________________________________________________________________________" << endl;
+				cout << "|---------------Title---------------|--BookID--|-----Author-----|----Publisher----|--Category--|--Price--|--Publication--|" << endl;
+				existed = true;
+			}
+			cout << "|" << setw(35) << bookList[i].getTitle() << "|" << setw(10) << bookList[i].getBookID() << "|" << setw(16)
+				<< bookList[i].getAuthor() << "|" << setw(17) << bookList[i].getPublisher() << "|" << setw(12) << bookList[i].getCategory()
+				<< "|" << setw(9) << bookList[i].getCost() << "|" << setw(15) << bookList[i].getPublication() << "|" << endl;
+		}
+	}
+
+	if (existed)
+		cout << "--------------------------------------------------------------------------------------------------------------------------" << endl;
+	else {
+		cout << "No book found!" << endl;
+	}
+	system("pause");
+
+}
+
+void BookDatabase::searchByPublication() {
+	cout << "Enter publication year: ";
+	int _publication;
+	cin >> _publication;
+	bool existed = false;
+
+	for (size_t i = 0; i < getCapacity(); i++) {
+
+		if (bookList[i].getPublication() == _publication) {
+
+			if (existed == false) {
+				cout << "__________________________________________________________________________________________________________________________" << endl;
+				cout << "|---------------Title---------------|--BookID--|-----Author-----|----Publisher----|--Category--|--Price--|--Publication--|" << endl;
+				existed = true;
+			}
+			cout << "|" << setw(35) << bookList[i].getTitle() << "|" << setw(10) << bookList[i].getBookID() << "|" << setw(16)
+				<< bookList[i].getAuthor() << "|" << setw(17) << bookList[i].getPublisher() << "|" << setw(12) << bookList[i].getCategory()
+				<< "|" << setw(9) << bookList[i].getCost() << "|" << setw(15) << bookList[i].getPublication() << "|" << endl;
+		}
+	}
+
+	if (existed)
+		cout << "--------------------------------------------------------------------------------------------------------------------------" << endl;
+	else {
+		cout << "No book found!" << endl;
+	}
+	system("pause");
+}
+
 BookDatabase::~BookDatabase() {
+	
 	capacity = 0;
 	delete[] bookList;
 }

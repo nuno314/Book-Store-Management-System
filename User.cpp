@@ -46,8 +46,9 @@ void User::listBook() {
 	cout << "__________________________________________________________________________________________________________________________" << endl;
 	cout << "|---------------Title---------------|--BookID--|-----Author-----|----Publisher----|--Category--|--Price--|--Publication--|" << endl;
 	for (size_t i = 0; i < lib.Database.getCapacity(); i++) {
-		cout << "|" << setw(35) << lib.Database.bookList[i].getTitle() <<  "|" << setw(10) << lib.Database.bookList[i].getBookID() << "|" << setw(16) << lib.Database.bookList[i].getAuthor() << "|" 
-		<< setw(17) << lib.Database.bookList[i].getPublisher() << "|" << setw(12) << lib.Database.bookList[i].getCategory() << "|" << setw(9) << lib.Database.bookList[i].getCost() << "|" << setw(15) << lib.Database.bookList[i].getPublication() << "|" << endl;
+		cout << "|" << setw(35) << lib.Database.bookList[i].getTitle() <<  "|" << setw(10) << lib.Database.bookList[i].getBookID() << "|" << setw(16)
+		<< lib.Database.bookList[i].getAuthor() << "|" << setw(17) << lib.Database.bookList[i].getPublisher() << "|" << setw(12) << lib.Database.bookList[i].getCategory()
+		<< "|" << setw(9) << lib.Database.bookList[i].getCost() << "|" 	<< setw(15) << lib.Database.bookList[i].getPublication() << "|" << endl;
 	}
 	cout << "==========================================================================================================================" << endl;
 	
@@ -55,7 +56,7 @@ void User::listBook() {
 }
 
 void User::printUserList() {
-	ofstream outFile("UserList.txt");
+	ofstream outFile("User.txt");
 	if (!outFile) {
 		cout << "UserList.txt can't open." << endl;
 		return;
@@ -71,11 +72,28 @@ void User::printUserList() {
 void User::changePsw() {
 	cout << "Enter current password: " << endl;
 	string _password;
-	cin >> _password;
+	_password = getHiddenPassword();
+	
+	for (size_t i = 0; i < lib.UserArray.size(); i++) {
+		if (lib.UserArray[i].getUsername() == username) {
+			if (_password != lib.UserArray[i].getPassword()) {
+				cout << "Wrong password. Exiting..";
+				Sleep(2000);
+				return;
+			}
+			cout << "\nEnter your new password: ";
+			string _password1 = getHiddenPassword();
+			cout << "\nEnter new password again: ";
+			string _password2 = getHiddenPassword();
+			if (_password1 == _password2) {
+				lib.UserArray[i].setPassword(_password1);
+			}
 
-	if (this->getPassword() == _password) {
-		cout << "Enter your new password: "; 
+			break;
+		}
 	}
+
+	
 }
 
 string User::getHiddenPassword() {
@@ -102,5 +120,4 @@ User::~User(){
 	username = "";
 	password = "";
 	role = 0;
-	printUserList();
 }

@@ -4,6 +4,7 @@
 #include "Customer.h"
 #include <Windows.h>
 #include "Manager.h"
+#include "Admin.h"
 
 Library lib;
 string username, password;
@@ -85,18 +86,16 @@ void Session() {
 	case 1: {
 		Customer person;
 		person.Interface(username);
+		break;
 	}
 	case 2: {
-		/*Admin person;
-		person.Interface(username);*/
+		Admin person;
+		person.Interface(username);
+		break;
 	}
 	default:
 		break;
 	}
-
-	
-	
-
 }
 
 int main() {

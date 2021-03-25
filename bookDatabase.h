@@ -16,9 +16,12 @@ public:
 	
 	void sortBook(const string& _require);
 	void sortBookByCategory();
-	void findBookByPublisher(const string& _publisher);
-	void findBookByAuthor(const string& _author);
-	void updateBookCost(const int& _cost);
+	
+	void searchByAuthor();
+	void searchByPublisher();
+	void searchByPublication();
+	
+
 	int getCapacity();
 	~BookDatabase();
 };

@@ -7,7 +7,7 @@
 class User {
 private:
 	string username,password;
-	int role;
+	int role; // 2 for Administrator, 1 for Customer, 0 for Not exist, 
 public:
 	User();
 	void setUser(const string& _username, const string& _password, const int& role);
@@ -22,7 +22,10 @@ public:
 	int getRole();
 	void listBook();
 	void printUserList();
+	
 	void changePsw();
+
+	//virtual void Interface(const string& username);
 
 	~User();
 };
