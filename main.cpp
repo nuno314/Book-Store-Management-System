@@ -57,6 +57,11 @@ void Session() {
 				cin >> username;
 				guess.setUsername(username);
 
+				if (lib.isExistedUsername(username)) {
+					cout << "Username existed. Try again.." << endl;
+					continue;
+				}
+
 				cout << "Password: ";
 				cin >> password;
 				guess.setPassword(password);

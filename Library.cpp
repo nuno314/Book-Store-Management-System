@@ -4,7 +4,7 @@
 void Library::loadBook(){
 
 	ifstream inFile;
-	inFile.open("Test.txt", ios::in);
+	inFile.open("Book.txt", ios::in);
 
 	Book tmpBook;
 	string _title, _author, _bookID, _publisher, _category;
@@ -24,7 +24,7 @@ void Library::loadBook(){
 
 
 		tmpBook.setBook(_title, _bookID, _publisher, _author, _category, _publication, _cost);
-		Database.addBook(tmpBook);
+		BookArray.push_back(tmpBook);
 
 		while (getline(inFile, check)) {
 			if (!check.empty()) {
@@ -93,3 +93,26 @@ void Library::addUser(User _user) {
 	outFile.close();
 }
 
+bool Library::isExistedUsername(string _username) {
+	for (size_t i = 0; i < UserArray.size(); i++) {
+		if (UserArray[i].getUsername() == _username) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+bool Library::isExistedBook(string _bookID) {
+	for (size_t i = 0; i < BookArray.size(); i++) {
+		if (BookArray[i].getBookID() == _bookID) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+Library::~Library() {
+
+}

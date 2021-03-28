@@ -13,8 +13,14 @@ public:
 	void loadBook();
 	void loadUser();
 	void addUser(User _user);
-	BookDatabase Database;
+	vector<Book> BookArray;
 	vector<User> UserArray;
+	bool isExistedUsername(string _username);
+	bool isExistedBook(string _bookID);
+
+	 
+
+	~Library();
 };
 
 #endif

@@ -22,7 +22,10 @@ public:
 	int getRole();
 	void listBook();
 	void printUserList();
+	void printBookList();
 	
+
+
 	void changePsw();
 
 	//virtual void Interface(const string& username);

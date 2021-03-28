@@ -10,7 +10,12 @@ class Customer : public User {
 public:
 	void Interface(const string& username);
 	void buyBook();
-	
+
+	void searchByAuthor();
+	void searchByPublisher();
+	void searchByPublication();
+
+	~Customer();
 };
 
 #endif _CUSTOMER_H

@@ -1,5 +1,4 @@
-﻿  Admin.cpp
-D:\19120682\OOP\Test\Tet\bookStore\bookStore\Admin.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\19120682\OOP\Test\Tet\bookStore\bookStore\Admin.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\19120682\OOP\Test\Tet\bookStore\bookStore\Admin.cpp(11,23): warning C4018: '<': signed/unsigned mismatch
+﻿  Library.cpp
+D:\19120682\OOP\Test\Tet\bookStore\bookStore\Library.cpp(49,25): warning C4305: 'initializing': truncation from 'int' to 'char'
+D:\19120682\OOP\Test\Tet\bookStore\bookStore\Library.cpp(49,20): warning C4309: 'initializing': truncation of constant value
   bookStore.vcxproj -> D:\19120682\OOP\Test\Tet\bookStore\Debug\bookStore.exe

@@ -18,5 +18,13 @@ void Staff::addBook() {
 	
 	Book _book;
 	_book.setBook(_title, _bookID, _publisher, _author, _category, _price, _publication);
-	lib.Database.addBook(_book);
+	lib.BookArray.push_back(_book);
 }
+
+void Staff::delBook() {
+	cout << "Enter book's ID you want to delete: ";
+	string _bookID;
+	cin >> _bookID;
+
+}
+

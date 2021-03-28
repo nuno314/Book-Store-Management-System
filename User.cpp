@@ -45,10 +45,10 @@ void User::listBook() {
 	cout << "-----BOOK LIST-----" << endl;
 	cout << "__________________________________________________________________________________________________________________________" << endl;
 	cout << "|---------------Title---------------|--BookID--|-----Author-----|----Publisher----|--Category--|--Price--|--Publication--|" << endl;
-	for (size_t i = 0; i < lib.Database.getCapacity(); i++) {
-		cout << "|" << setw(35) << lib.Database.bookList[i].getTitle() <<  "|" << setw(10) << lib.Database.bookList[i].getBookID() << "|" << setw(16)
-		<< lib.Database.bookList[i].getAuthor() << "|" << setw(17) << lib.Database.bookList[i].getPublisher() << "|" << setw(12) << lib.Database.bookList[i].getCategory()
-		<< "|" << setw(9) << lib.Database.bookList[i].getCost() << "|" 	<< setw(15) << lib.Database.bookList[i].getPublication() << "|" << endl;
+	for (size_t i = 0; i < lib.BookArray.size(); i++) {
+		cout << "|" << setw(35) << lib.BookArray[i].getTitle() <<  "|" << setw(10) << lib.BookArray[i].getBookID() << "|" << setw(16)
+		<< lib.BookArray[i].getAuthor() << "|" << setw(17) << lib.BookArray[i].getPublisher() << "|" << setw(12) << lib.BookArray[i].getCategory()
+		<< "|" << setw(9) << lib.BookArray[i].getCost() << "|" 	<< setw(15) << lib.BookArray[i].getPublication() << "|" << endl;
 	}
 	cout << "==========================================================================================================================" << endl;
 	
@@ -59,6 +59,7 @@ void User::printUserList() {
 	ofstream outFile("User.txt");
 	if (!outFile) {
 		cout << "UserList.txt can't open." << endl;
+		Sleep(3000);
 		return;
 	}
 
@@ -67,6 +68,32 @@ void User::printUserList() {
 	}
 
 	outFile.close();
+}
+
+void User::printBookList() {
+	ofstream outFile("Book.txt");
+	if (!outFile) {
+		cout << "Book.txt can't open." << endl;
+		Sleep(3000);
+		return;
+	}
+
+	for (size_t i = 0; i < lib.BookArray.size(); i++) {
+		outFile << lib.BookArray[i].getTitle() << endl;
+		outFile << lib.BookArray[i].getBookID() << endl;
+		outFile << lib.BookArray[i].getAuthor() << endl;
+		outFile << lib.BookArray[i].getPublisher() << endl;
+		outFile << lib.BookArray[i].getCategory() << endl;
+		outFile << lib.BookArray[i].getCost() << endl;
+		outFile << lib.BookArray[i].getPublication() << endl;
+
+		if (i == lib.BookArray.size() - 1) {
+			outFile << "END";
+		}
+		else
+			outFile << endl;
+	}
+	cout << "Print book done!" << endl; Sleep(3000);
 }
 
 void User::changePsw() {
@@ -117,6 +144,7 @@ string User::getHiddenPassword() {
 }
 
 User::~User(){
+	
 	username = "";
 	password = "";
 	role = 0;

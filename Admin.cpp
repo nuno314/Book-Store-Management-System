@@ -8,13 +8,13 @@ void Admin::updatePrice() {
 	string _bookID;
 	cin >> _bookID;
 
-	for (size_t i = 0; i < lib.Database.getCapacity(); i++) {
-		if (lib.Database.bookList[i].getBookID() == _bookID) {
-			cout << "Current price: " << lib.Database.bookList[i].getCost() << endl;
+	for (size_t i = 0; i < lib.BookArray.size(); i++) {
+		if (lib.BookArray[i].getBookID() == _bookID) {
+			cout << "Current price: " << lib.BookArray[i].getCost() << endl;
 			cout << "New price: ";
 			int _price; cin >> _price;
 
-			lib.Database.bookList[i].setCost(_price);
+			lib.BookArray[i].setCost(_price);
 			break;
 		}
 	}
