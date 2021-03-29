@@ -21,9 +21,6 @@
     <ClCompile Include="book.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bookDatabase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Customer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -31,9 +28,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Library.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Admin.cpp">
@@ -47,9 +41,6 @@
     <ClInclude Include="book.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="bookDatabase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Customer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -57,9 +48,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Library.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Admin.h">

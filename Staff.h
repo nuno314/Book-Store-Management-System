@@ -5,4 +5,6 @@ class Staff : public User {
 public:
 	void addBook();
 	void delBook();
+	void Interface(string username);
+	~Staff();
 };

@@ -1,4 +1,18 @@
-﻿  Library.cpp
+﻿  Admin.cpp
+D:\19120682\OOP\Test\Tet\bookStore\bookStore\Admin.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\19120682\OOP\Test\Tet\bookStore\bookStore\Admin.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\19120682\OOP\Test\Tet\bookStore\bookStore\Admin.cpp(31,20): warning C4018: '<': signed/unsigned mismatch
+D:\19120682\OOP\Test\Tet\bookStore\bookStore\Admin.cpp(73,20): warning C4018: '<': signed/unsigned mismatch
+D:\19120682\OOP\Test\Tet\bookStore\bookStore\Admin.cpp(86,20): warning C4018: '<': signed/unsigned mismatch
+  Customer.cpp
+  Library.cpp
 D:\19120682\OOP\Test\Tet\bookStore\bookStore\Library.cpp(49,25): warning C4305: 'initializing': truncation from 'int' to 'char'
 D:\19120682\OOP\Test\Tet\bookStore\bookStore\Library.cpp(49,20): warning C4309: 'initializing': truncation of constant value
+  main.cpp
+D:\19120682\OOP\Test\Tet\bookStore\bookStore\Admin.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\19120682\OOP\Test\Tet\bookStore\bookStore\Admin.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Staff.cpp
+D:\19120682\OOP\Test\Tet\bookStore\bookStore\Staff.cpp(29,20): warning C4018: '<': signed/unsigned mismatch
+  User.cpp
+  Generating Code...
   bookStore.vcxproj -> D:\19120682\OOP\Test\Tet\bookStore\Debug\bookStore.exe

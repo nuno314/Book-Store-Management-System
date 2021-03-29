@@ -26,7 +26,7 @@ public:
 	
 
 
-	void changePsw();
+	void changePsw(string _username);
 
 	//virtual void Interface(const string& username);
 

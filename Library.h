@@ -2,7 +2,6 @@
 #define LIBRARY_H
 
 #include "book.h"
-#include "bookDatabase.h"
 #include "User.h"
 #include <vector>
 

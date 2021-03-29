@@ -1,5 +1,4 @@
 #include "book.h"
-#include "bookDatabase.h"
 #include "Library.h"
 #include "Customer.h"
 #include <Windows.h>
@@ -31,10 +30,13 @@ void Session() {
 	system("cls");
 	int role = 0;
 	int time = 0;
-	cout << "Welcome To The Book Store Management System." << endl;
-	cout << "Please log in first--" << endl;
+	
 	
 	while (role == 0) {
+		cout << "Welcome To The Book Store Management System." << endl;
+
+		cout << "Please log in first--" << endl;
+
 		cout << "Username: ";
 		cin >> username;
 		cout << "Password: ";
@@ -50,9 +52,8 @@ void Session() {
 			cout << "2. No..."  ;
 			int choice;
 			cin >> choice;
-
+			system("cls");
 			if (choice == 1) {
-
 				cout << "Username: ";
 				cin >> username;
 				guess.setUsername(username);
@@ -94,9 +95,13 @@ void Session() {
 		break;
 	}
 	case 2: {
-		Admin person;
+		Staff person;
 		person.Interface(username);
 		break;
+	}
+	case 3: {
+		Admin person;
+		person.Interface(username);
 	}
 	default:
 		break;

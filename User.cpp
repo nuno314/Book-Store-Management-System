@@ -96,13 +96,13 @@ void User::printBookList() {
 	cout << "Print book done!" << endl; Sleep(3000);
 }
 
-void User::changePsw() {
+void User::changePsw(string _username) {
 	cout << "Enter current password: " << endl;
 	string _password;
 	_password = getHiddenPassword();
-	
+
 	for (size_t i = 0; i < lib.UserArray.size(); i++) {
-		if (lib.UserArray[i].getUsername() == username) {
+		if (lib.UserArray[i].getUsername() == _username) {
 			if (_password != lib.UserArray[i].getPassword()) {
 				cout << "Wrong password. Exiting..";
 				Sleep(2000);
@@ -115,9 +115,14 @@ void User::changePsw() {
 			if (_password1 == _password2) {
 				lib.UserArray[i].setPassword(_password1);
 			}
+			else {
+				cout << "\nIncorrect password. Exiting.." << endl;
+				Sleep(2000);
+			}
 
 			break;
 		}
+		
 	}
 
 	
