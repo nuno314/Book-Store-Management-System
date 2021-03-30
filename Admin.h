@@ -5,7 +5,8 @@
 #include "Staff.h"
 
 class Admin : public Staff {
-
+private:
+	int discount; // %
 public:
 	void Interface(const string& username);
 	void updatePrice();
@@ -13,5 +14,6 @@ public:
 	void setStaff();
 	void listUser();
 	string getRoleName(int _role);
+	
 	~Admin();
 };

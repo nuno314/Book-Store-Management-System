@@ -9,21 +9,28 @@ void Admin::updatePrice() {
 	cin >> _bookID;
 
 	for (size_t i = 0; i < lib.BookArray.size(); i++) {
+
 		if (lib.BookArray[i].getBookID() == _bookID) {
+
 			cout << "Current price: " << lib.BookArray[i].getCost() << endl;
 			cout << "New price: ";
 			int _price; cin >> _price;
 
 			lib.BookArray[i].setCost(_price);
+			printBookList();
+			cout << "Update successfully! Back to menu.." << endl;
+			Sleep(2000);
 			break;
 		}
 	}
 
-	cout << "Update successfully! Back to menu.." << endl;
+	cout << "No book ID found. Exiting..";
 	Sleep(2000);
 }
 
 void Admin::delUser() {
+
+	listUser();
 	string _username;
 	cout << "Enter username you want to delete: ";
 	cin >> _username;
@@ -31,7 +38,9 @@ void Admin::delUser() {
 	for (int i = 0; i < lib.UserArray.size(); i++) {
 		
 		if (lib.UserArray[i].getUsername() == _username) {
+
 			lib.UserArray.erase(lib.UserArray.begin() + i);
+			printUserList();
 			cout << "Deleted successfully. Exiting.." << endl;
 			Sleep(2000);
 			return;
@@ -79,6 +88,8 @@ void Admin::listUser() {
 }
 
 void Admin::setStaff() {
+	listUser();
+
 	string _username;
 	cout << "Enter username you want to set Staff: ";
 	cin >> _username;
@@ -95,9 +106,12 @@ void Admin::setStaff() {
 				cout << "Set succesfully. Exiting..";
 				Sleep(2000);
 			}
+
+			printUserList();
 			return;
 		}
 	}
+
 
 	cout << "Username doesn't exist. Exiting..";
 	Sleep(2000);
@@ -149,11 +163,17 @@ void Admin::Interface(const string& username) {
 			changePsw(username);
 			break;
 		}
+		case 0: {
+			cout << "Good bye. Exiting.." << endl;
+			Sleep(2000);
+			return;
+		}
 		}
 	}
 }
 
+
+
 Admin::~Admin() {
-	printBookList();
-	printUserList();
+	
 }

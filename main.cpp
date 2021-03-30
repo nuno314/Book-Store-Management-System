@@ -40,9 +40,10 @@ void Session() {
 		cout << "Username: ";
 		cin >> username;
 		cout << "Password: ";
-		password = guess.getHiddenPassword();
+		Password psw;
+		psw.setPassword();
 
-		role = Login(username, password);
+		role = Login(username, psw.getPassword());
 
 		if (role == 0) {
 
@@ -64,26 +65,31 @@ void Session() {
 				}
 
 				cout << "Password: ";
-				cin >> password;
-				guess.setPassword(password);
-
+				psw.setPassword();
+				guess.setPassword(psw.getPassword());
 				guess.setRole(1);
-
 				lib.addUser(guess);
 			}
 			else continue;
 		}
 		else while (role == -1) {
 			time++;
+
 			if (time >= 5) {
-				cout << "Incorrect password. Exiting..." << endl;
+				cout << "\nIncorrect password. Exiting..." << endl;
 				return;
 			}
+
 			cout << "\nThe password is incorrect. Try again.." << endl;
 			cout << "You have " << 5 - time << " chance(s) left." << endl;
+			
+			Password _psw;
 			cout << "Password: ";
-			password = guess.getHiddenPassword();
-			role = Login(username, password);
+
+			
+			_psw.setPassword();
+			role = Login(username, _psw.getPassword());
+			_psw.~Password();
 		}
 	}
 
@@ -106,6 +112,7 @@ void Session() {
 	default:
 		break;
 	}
+	cout << "done";
 }
 
 int main() {

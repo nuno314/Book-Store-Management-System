@@ -3,6 +3,7 @@
 
 #include "Library.h"
 #include <conio.h>
+#include "Password.h"
 
 class User {
 private:
@@ -17,7 +18,6 @@ public:
 
 	string getUsername();
 	string getPassword();
-	string getHiddenPassword();
 
 	int getRole();
 	void listBook();

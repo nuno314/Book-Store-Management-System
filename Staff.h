@@ -6,5 +6,6 @@ public:
 	void addBook();
 	void delBook();
 	void Interface(string username);
+	void updateInfoBook();
 	~Staff();
 };
